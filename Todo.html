@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    /* #tablerows {
+  text-decoration:none;
+} */
+input:checked + p {
+  background: #f9f9f9;
+  text-decoration: line-through;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+}
+input[type=text] {
+  width: 40%;
+  padding: 6px 10px;
+  margin: 2px 0;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 30px 12px 39px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 17px;
+  transition: 0.2s;
+  
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 30px 12px 39px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 17px;
+  transition: 0.2s;
+  
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+ul li:nth-child(odd) {
+  /* background:white; */
+  color: black;
+  border-radius: 100px 10px ;
+}
+/* Set all odd list items to a different color (zebra-stripes) */
+li:nth-child(odd) {
+  /* background:white; */
+  color: black;
+  border-radius: 10px 100px ;
+}
+
+/* Darker background-color on hover */
+li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+li.checked {
+  /* background: #888; */
+  /* color: #fff; */
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+li.checked::before {
+  content: '';
+  position: absolute;
+  border-color:black;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+button{
+  border-radius: 5px 5px ;
+  padding: 3px 14px;
+  font-size: 15px;
+}
+#resetButton{
+  visibility: hidden;
+}
+/*
+#resetButton::before{
+  visibility: visible;
+}
+#resetButton:nth-child(odd){
+  visibility: visible;
+} */
+</style>
+</head>
+<body onload="prepareTableCell()">
+ 
+  <form id="reset" name="myForm" onsubmit="return validation();">
+  <!-- <div id="user-field"> -->
+    <input id="input" type="text" status="false">
+    <!-- <br> -->
+    <small id="uname"></small>
+  <!-- </div> -->
+    <button id="addButton" name="add" onclick="addItem()">ADD</button>
+    
+</form>
+<br>
+    <!-- <ul id="mainList"> </ul> -->
+    <table border="0" align="" cellspacing="0" cellpaddind="0" id="regtable">
+
+        <tbody id="tablerows"></tbody>
+      </table>
+      
+<br>
+    <button id="all" name="list" onclick="prepareTableCell()" >all</button>
+    <button id="activeButton" name="activeList" onclick="active()">active</button>
+    <button id="completeButton" name="completeList" onclick="completed();">complete</button>
+    <button id="resetButton" name="reset" onclick="resetAll();">reset</button>    
+<br> <br>
+<table border="0" align="" cellspacing="0" cellpaddind="0" id="regtable2">
+
+  <tbody id="tablerows2"> </tbody>
+</table>
+
+</body>
+<script src="./todo2.js"></script>
+</html>
